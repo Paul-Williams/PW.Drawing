@@ -8,7 +8,7 @@ namespace PW.Drawing
   public static class BitmapExtensions
   {
 
-    public static (Bitmap, Size) GetHDSize(this Bitmap image)
+    public static (Bitmap Bitmap, Size Size) GetHDSize(this Bitmap image)
     {
       if (image is null)
       {

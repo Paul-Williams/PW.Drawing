@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace PW.Drawing
+namespace PW.IO
 {
   public static class DirectoryExtensions
   {

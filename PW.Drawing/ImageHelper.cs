@@ -67,20 +67,20 @@ namespace PW.Drawing
 
     }
 
-    /// <summary>
-    /// Return either an bitmap or an exception. See: <see cref="ImageFromFile(FilePath)"/>
-    /// </summary>
-    public static OneOf<Bitmap, Exception> TryOpenBitmap(FilePath path)
-    {
-      try
-      {
-        return (Bitmap)ImageFromFile(path);
-      }
-      catch (Exception ex)
-      {
-        return ex;
-      }
-    }
+    ///// <summary>
+    ///// Return either an bitmap or an exception. See: <see cref="ImageFromFile(FilePath)"/>
+    ///// </summary>
+    //public static OneOf<Bitmap, Exception> TryOpenBitmap(FilePath path)
+    //{
+    //  try
+    //  {
+    //    return (Bitmap)ImageFromFile(path);
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    return ex;
+    //  }
+    //}
 
 
     /// <summary>

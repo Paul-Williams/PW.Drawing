@@ -1,11 +1,25 @@
-﻿using System;
+﻿using OneOf;
+using PW.IO.FileSystemObjects;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace PW.Drawing
 {
-  public static class ImageHelper
+  public static partial class ImageHelper
   {
+    /// <summary>
+    /// Creates a new <see cref="EncoderParameters"/> with the specified compression.
+    /// </summary>
+    /// <param name="compression"><see cref="CompressionBounds.Min"/>-<see cref="CompressionBounds.Max"/></param>
+    public static EncoderParameters QualityEncoderParameters(long compression)
+    {
+      var encoderParameters = new EncoderParameters(1);
+      encoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, compression);
+      return encoderParameters;
+    }
+
+
     // See: https://efundies.com/csharp-save-jpg/
     public static ImageCodecInfo? GetEncoderInfo(String mimeType)
     {
@@ -20,13 +34,15 @@ namespace PW.Drawing
       return null;
     }
 
+    public static ImageCodecInfo JpegImageCodecInfo { get; } = GetEncoderInfo("image/jpeg") ?? throw new Exception("GetEncoderInfo(\"image/jpeg\") failed.");
+
     /// <summary>
     /// Loads an image from file. Unlike <see cref="Image.FromFile(string)"/> it does not hold a lock on the file until the <see cref="Image"/> is disposed.
     /// This does not support Vector images, only Bitmaps.
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
-    public static Image ImageFromFile(string path)
+    public static Image ImageFromFile(FilePath path)
     {
       // Purpose:
       // This method is a work-around for a common problem where loading an Image into a PictureBox
@@ -46,9 +62,41 @@ namespace PW.Drawing
       // The first bitmap created from file will hold a lock until disposed.
       // A second bitmap is created from the first one, and does not know about the file.
       // In this way the file is not locked for ages!
-      using var tmp = new Bitmap(path);
+      using var tmp = new Bitmap(path.Value);
       return new Bitmap(tmp);
 
     }
+
+    /// <summary>
+    /// Return either an bitmap or an exception. See: <see cref="ImageFromFile(FilePath)"/>
+    /// </summary>
+    public static OneOf<Bitmap, Exception> TryOpenBitmap(FilePath path)
+    {
+      try
+      {
+        return (Bitmap)ImageFromFile(path);
+      }
+      catch (Exception ex)
+      {
+        return ex;
+      }
+    }
+
+
+    /// <summary>
+    /// Return either an bitmap or an exception. See: <see cref="ImageFromFile(FilePath)"/>
+    /// </summary>
+    public static OneOf<Image, Exception> TryOpenImage(FilePath path)
+    {
+      try
+      {
+        return ImageFromFile(path);
+      }
+      catch (Exception ex)
+      {
+        return ex;
+      }
+    }
+
   }
 }

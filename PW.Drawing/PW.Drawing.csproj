@@ -1,14 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <RepositoryUrl>https://github.com/Paul-Williams/PW.Drawing</RepositoryUrl>
-    <Version>1.0.3</Version>
+    <Version>1.0.6</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PW.Common" Version="1.0.5" />
+    <PackageReference Include="PW.Common" Version="1.0.8" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
   </ItemGroup>
 

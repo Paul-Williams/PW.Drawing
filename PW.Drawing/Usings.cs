@@ -1,0 +1,10 @@
+global using OneOf;
+global using PW.Drawing.Imaging;
+global using PW.IO.FileSystemObjects;
+global using System;
+global using System.Drawing;
+global using System.Drawing.Drawing2D;
+global using System.Drawing.Imaging;
+global using System.IO;
+global using System.Linq;
+global using static PW.Drawing.ImageHelper;

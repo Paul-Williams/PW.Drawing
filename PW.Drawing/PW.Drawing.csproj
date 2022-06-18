@@ -4,12 +4,25 @@
     <TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
     <Nullable>enable</Nullable>
     <RepositoryUrl>https://github.com/Paul-Williams/PW.Drawing</RepositoryUrl>
-    <Version>3.0.0</Version>
-    <LangVersion>latest</LangVersion>
+    <Version>3.1.0</Version>
+    <LangVersion>preview</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="PW.Common" Version="4.0.12" />
   </ItemGroup>
 
+
+		<ItemGroup>			
+			<!-- Remove all using that appear in the 'hidden' auto-generated file -->
+			<Using Remove="System.Net.Http" />
+			<Using Remove="System" />
+			<Using Remove="System.IO" />
+			<Using Remove="System.Linq" />
+			<Using Remove="System.Threading" />
+			<Using Remove="System.Threading.Tasks" />
+		</ItemGroup>
+	
+	
 </Project>

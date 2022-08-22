@@ -96,7 +96,7 @@ public static class BitmapExtensions
     if (path is null) throw new ArgumentNullException(nameof(path));
 
 
-    image.Save(path.Value, JpegImageCodecInfo, QualityEncoderParameters(compression));
+    image.Save(path.Path, JpegImageCodecInfo, QualityEncoderParameters(compression));
   }
 
 

@@ -4,13 +4,13 @@
     <TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
     <Nullable>enable</Nullable>
     <RepositoryUrl>https://github.com/Paul-Williams/PW.Drawing</RepositoryUrl>
-    <Version>3.1.0</Version>
+    <Version>3.1.1</Version>
     <LangVersion>preview</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PW.Common" Version="4.0.12" />
+    <PackageReference Include="PW.Common" Version="5.0.5" />
   </ItemGroup>
 
 

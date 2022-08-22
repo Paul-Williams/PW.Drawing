@@ -29,10 +29,10 @@ public static class DirectoryExtensions
   public static IEnumerable<FilePath> EnumerateGdiSupportedImages(this DirectoryPath directory, System.IO.SearchOption searchOption)
   {
     if (directory is null) throw new ArgumentNullException(nameof(directory));
-    if (!directory.Exists) throw new DirectoryNotFoundException("Directory not found: " + directory.Value);
+    if (!directory.Exists) throw new DirectoryNotFoundException("Directory not found: " + directory.Path);
 
 
     // TODO: Use - Enumerable.SelectMany(directory.EnumerateAuthorizedDirectories(true), x =>
-    return directory.EnumerateFiles("*.*", searchOption).Where(file => GdiImageDecoderFormats.IsSupported(file.Extension.Value));
+    return directory.EnumerateFiles("*.*", searchOption).Where(file => GdiImageDecoderFormats.IsSupported(file.Extension.Path));
   }
 }

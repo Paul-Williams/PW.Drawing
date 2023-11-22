@@ -38,7 +38,7 @@ public static partial class ImageHelper
     // NB: Stream must not be disposed here. The returned image *may* require it later.
     // As such it is left to the GC to dispose the stream after the image is disposed.
 
-    return Image.FromStream(new MemoryStream(File.ReadAllBytes(path.Path)));
+    return Image.FromStream(new MemoryStream(File.ReadAllBytes(path.ToString())));
 
   }
 

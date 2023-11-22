@@ -11,7 +11,7 @@ public class ImageHelperTests
   {
     var file = new FilePath(  @"");
 
-    var img1 = Image.FromFile(file.Path);
+    var img1 = Image.FromFile(file.ToString());
     var img2 = ImageHelper.OpenWithoutFileLock(file);
 
     Assert.AreEqual(img1.HorizontalResolution, img2.HorizontalResolution);

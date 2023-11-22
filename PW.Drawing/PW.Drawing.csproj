@@ -4,13 +4,17 @@
     <TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
     <Nullable>enable</Nullable>
     <RepositoryUrl>https://github.com/Paul-Williams/PW.Drawing</RepositoryUrl>
-    <Version>3.1.1</Version>
+    <Version>3.1.2</Version>
     <LangVersion>preview</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<Title>PW.Drawing</Title>
+		<Authors>The Computer Station</Authors>
+		<Description>GDI+ Drawing Helper Library</Description>
+		<Copyright>© The Computer Station</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PW.Common" Version="5.0.5" />
+    <PackageReference Include="PW.Common" Version="7.0.0" />
   </ItemGroup>
 
 

@@ -96,7 +96,7 @@ public static class BitmapExtensions
     if (path is null) throw new ArgumentNullException(nameof(path));
 
 
-    image.Save(path.Path, JpegImageCodecInfo, QualityEncoderParameters(compression));
+    image.Save(path.ToString(), JpegImageCodecInfo, QualityEncoderParameters(compression));
   }
 
 
@@ -118,15 +118,15 @@ public static class BitmapExtensions
   /// The color-matrix needed to grey-scale an image.
   /// Source: http://www.switchonthecode.com/tutorials/csharp-tutorial-convert-a-color-image-to-grayscale
   /// </summary>
-  private static ColorMatrix GreyscaleColorMatrix { get; } = new(new float[][]
-  {
+  private static ColorMatrix GreyscaleColorMatrix { get; } = new(
+  [
     // TODO: Make this lazy-create.
-    new float[] {.3f, .3f, .3f, 0, 0},
-    new float[] {.59f, .59f, .59f, 0, 0},
-    new float[] {.11f, .11f, .11f, 0, 0},
-    new float[] {0, 0, 0, 1, 0},
-    new float[] {0, 0, 0, 0, 1}
-  });
+    [.3f, .3f, .3f, 0, 0],
+    [.59f, .59f, .59f, 0, 0],
+    [.11f, .11f, .11f, 0, 0],
+    [0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 1]
+  ]);
 
   /// <summary>
   /// Gets the lightness of the image in 256 sections (16x16)
